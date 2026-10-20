@@ -1,0 +1,64 @@
+[project]
+name = "foshan-land-scraper-llm"
+version = "0.1.0"
+description = "大模型截图识别实验（任务三）"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "playwright>=1.40.0",
+    "httpx>=0.27.0",
+    "structlog>=24.0.0",
+    "click>=8.1.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "typer>=0.12.0",
+    "python-json-logger>=2.0.0",
+    "openpyxl>=3.1.5",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=2.3.0",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.16.1",
+    "types-openpyxl>=3.1.5.20260724",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/foshan_scraper"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py314"
+exclude = [".claude/**"]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "W",
+    "I",
+    "UP",
+    "B",
+    "C4",
+    "G",
+    "PLC",
+    "PLE",
+    "PLR",
+    "PLW",
+    "RUF",
+]
+ignore = ["PLR2004", "RUF001", "RUF002", "RUF003", "PLR0913", "PLR0917", "PLR0912", "PLR0915"]
+
+[tool.mypy]
+python_version = "3.14"
+strict = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

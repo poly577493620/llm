@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 环境变量（模板除外）
+.env
+!.env.example
+
+# Claude 本地
+.claude/
+
+# Excel 临时文件
+~$*.xlsx
+
+# 旧的错误输出备份（不提交）
+raw_outputs_bad/
+
+# data/ 目录：参考数据必须提交
+data/*
+!data/reference_data.json
+
+# output/ 目录：只保留正式提交材料
+output/*
+!output/task3_llm_results.xlsx
+!output/screenshots/
+!output/screenshots/*.png
+!output/raw_outputs/
+!output/raw_outputs/*.json
+
+# evidence/ 目录：只保留录屏和说明
+evidence/*
+!evidence/README.md
+!evidence/任务三_执行录屏.mp4
